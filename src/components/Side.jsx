@@ -13,6 +13,7 @@ const Side = () => {
 
   return (
     // with only icons the width is w-18
+    // testing github
     <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={`cursor-pointer menu bg-black h-screen flex flex-col justify-between fixed font-[system-ui] transition-all ease-in duration-2000 `}>
 
       <div>
