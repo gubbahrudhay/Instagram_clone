@@ -1,0 +1,32 @@
+.big{
+    border-radius: 50%;
+    height: 84px;
+    width: 84px;
+
+    background: linear-gradient(
+        45deg,
+        #feda75,
+        #fa7e1e,
+        #d62976,
+        #962fbf,
+        #4f5bd5
+    );
+
+    padding: 4px; 
+}
+
+.small{
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    background-color: green;
+    margin: auto;
+}
+
+.main{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
