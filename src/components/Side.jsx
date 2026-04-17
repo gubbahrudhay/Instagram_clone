@@ -24,8 +24,8 @@ const Side = ({ setActiveTab }) => {
   return (
     <>
       <SearchPanel isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
-      <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={`menu bg-[rgb(11,16,20)] h-screen flex flex-col justify-between fixed font-[system-ui] transition-[width] ease-in-out z-50 ${isSearchOpen ? 'border-r border-[#262626]' : ''}`}>
-
+      <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={`menu bg-[rgb(11,16,20)] h-screen flex flex-col justify-between fixed font-[system-ui] transition-all duration-300 ${isSearchOpen ? 'border-r border-[#262626]' : ''}`}>
+{/* change the timing of the side bar */}
       <div>
         <img src={insta} alt="Instagram" className={'w-7 h-7 ml-5 mt-8'}/>
       </div>
