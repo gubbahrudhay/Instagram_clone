@@ -10,12 +10,12 @@ import FollowSuggestedPage from './components/SuggestedFollowers'
 function App(){
   return(
     <>
-      {/* <Side />
-      <RenderStories />
-      <RenderStoriesss /> */}
+      <Side />
+      {/* <RenderStories /> */}
+      {/* <RenderStoriesss /> */}
       {/* <Follow /> */}
       {/* <SuggestedFollow /> */}
-      <FollowSuggestedPage />
+      {/* <FollowSuggestedPage /> */}
     </>
   )
 }
