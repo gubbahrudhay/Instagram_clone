@@ -3,15 +3,19 @@ import './index.css'
 import Side from "./components/Side"
 import RenderStories from "./components/Storiesss"
 import RenderStoriesss from "./components/Post"
-
+import Follow from './components/SuggestedFollowers'
+import SuggestedFollow from './components/SuggestedFollowers'
+import FollowSuggestedPage from './components/SuggestedFollowers'
 
 function App(){
   return(
     <>
-      <Side />
+      {/* <Side />
       <RenderStories />
-      <RenderStoriesss />
-
+      <RenderStoriesss /> */}
+      {/* <Follow /> */}
+      {/* <SuggestedFollow /> */}
+      <FollowSuggestedPage />
     </>
   )
 }
