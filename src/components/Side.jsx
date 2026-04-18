@@ -6,7 +6,7 @@ import {SquarePlay , Send , Search , Compass , Heart , Plus , Menu, Sidebar } fr
 import "../index.css"
 import SearchPanel from './SearchPanel';
 
-const Side = () => {
+const Side = ({ setActiveTab }) => {
   const [ishovered, sethovered] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
@@ -30,11 +30,11 @@ const Side = () => {
       </div>
       
       <div className='flex flex-col flex-1 justify-center'>
-        <div style={{display:'flex',flexDirection:'row',alignItems:'center',padding:'30px 20px',fontSize:'18px',color:'white',borderRadius:"10px"}}>
+        <div onClick={() => setActiveTab && setActiveTab('home')} style={{display:'flex',flexDirection:'row',alignItems:'center',padding:'30px 20px',fontSize:'18px',color:'white',borderRadius:"10px", cursor: 'pointer'}}>
           <img src={house} alt="house" className='w-7 h-7 mr-2' />
           <span className={`${ishovered && !isSearchOpen ? '' : 'hidden'}`}>Home</span>
         </div>
-        <div style={{display:'flex',flexDirection:'row',alignItems:'center',fontSize:'18px',color:'white',padding:'30px 20px',borderRadius:"10px"}}>
+        <div onClick={() => setActiveTab && setActiveTab('reels')} style={{display:'flex',flexDirection:'row',alignItems:'center',fontSize:'18px',color:'white',padding:'30px 20px',borderRadius:"10px", cursor: 'pointer'}}>
           <SquarePlay color='white' className='w-7 h-7 mr-2'/> <span className={`${ishovered && !isSearchOpen ? '' : 'hidden'}`}>Reels</span>
         </div>
         <div style={{display:'flex',flexDirection:'row',alignItems:'center',fontSize:'18px',color:'white',padding:'30px 20px',borderRadius:"10px"}}>
