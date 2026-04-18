@@ -1,0 +1,201 @@
+.reels-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding-left: 72px;
+}
+
+.reels-content-wrapper {
+  display: flex;
+  height: calc(100vh - 40px);
+  width: auto;
+  max-width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.reels-video-player {
+  width: 350px;
+  max-width: 100%;
+  height: 100%;
+  background-color: #000;
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.video-player-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.video-content-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: green;
+  overflow: hidden;
+}
+
+
+.reel-bottom-info {
+  position: absolute;
+  bottom: 24px;
+  left: 16px;
+  right: 16px;
+  color: white;
+  z-index: 10;
+}
+
+.reel-user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.reel-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #4b5563;
+  border: 1px solid #374151; 
+}
+
+.reel-username {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.reel-dot {
+  margin: 0 4px;
+  font-size: 14px;
+}
+
+.reel-follow-btn {
+  font-weight: 600;
+  font-size: 14px;
+  border: 1px solid #9ca3af;
+  background-color: transparent;
+  color: white;
+  border-radius: 4px;
+  padding: 4px 12px;
+  cursor: pointer;
+}
+
+
+.reel-caption {
+  font-size: 14px;
+  margin: 0;
+}
+
+.mute-btn {
+  position: absolute;
+  bottom: 24px;
+  right: 16px;
+  width: 28px;
+  height: 28px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 0;
+  color: white;
+}
+
+
+.reels-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 12px;
+  margin-left: 16px;
+  gap: 20px;
+}
+
+.action-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  color: white;
+}
+
+
+.action-button span {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.action-bookmark {
+  margin-bottom: 8px;
+}
+
+.audio-track-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: white;
+  margin-top: 12px;
+  cursor: pointer;
+  border: 2px solid white;
+}
+
+.nav-chevrons {
+  position: absolute;
+  right: 48px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+}
+
+.chevron-btn {
+  background-color: grey;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  color: white;
+}
+
+.chevron-btn:hover {
+  background-color: #363636;
+}
+
+.chevron-up-btn {
+  margin-bottom: 16px;
+}
+
+
+
