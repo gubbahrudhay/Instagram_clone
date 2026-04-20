@@ -13,7 +13,7 @@ const Side = () => {
 
   return (
     // with only icons the width is w-18
-    <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={`menu bg-[rgb(11,16,20)] h-screen flex flex-col justify-between fixed font-[system-ui] transition-[width] ease-in-out`}>
+    <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={`menu bg-[#0b1014] h-screen flex flex-col justify-between fixed font-[system-ui] transition-[width] ease-in-out`}>
 
       <div>
         <img src={insta} alt="Instagram" className={'w-7 h-7 ml-5 mt-8'}/>

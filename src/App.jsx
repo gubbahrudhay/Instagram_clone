@@ -6,16 +6,18 @@ import RenderStoriesss from "./components/Post"
 import Follow from './components/SuggestedFollowers'
 import SuggestedFollow from './components/SuggestedFollowers'
 import FollowSuggestedPage from './components/SuggestedFollowers'
+import Layout from './pages/Layout'
 
 function App(){
   return(
     <>
-      <Side />
+      {/* <Side /> */}
       {/* <RenderStories /> */}
       {/* <RenderStoriesss /> */}
       {/* <Follow /> */}
       {/* <SuggestedFollow /> */}
       {/* <FollowSuggestedPage /> */}
+      <Layout />
     </>
   )
 }

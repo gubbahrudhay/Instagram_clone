@@ -48,7 +48,7 @@ const SuggestedFollow = ()=>{
 
 const FollowSuggestedPage = () => {
     return(
-        <div className='h-fit w-80 bg-black ml-15 mt-15 flex flex-col gap-4 p-4'>
+        <div className='h-fit w-80 bg-[#0b1014] ml-15 mt-15 flex flex-col gap-4 p-4'>
             <Follow />
             <div className='flex justify-between text-white'>
                 <span>Suggested for you</span>

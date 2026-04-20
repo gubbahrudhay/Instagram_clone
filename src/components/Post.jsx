@@ -46,17 +46,4 @@ const RenderStoriesss = () => {
 }
 
 
-
-
-
-const Post = () => {
-    return(
-        <div className="flex flex-col justify-center">
-            <div>{RenderStories()}</div>
-            <div className='h-137.5 w-100 bg-red-500 rounded-[5px] border border-[rgb(16,21,23)]'>
-            </div>
-        </div>
-    )
-}
-
 export default RenderStoriesss;
