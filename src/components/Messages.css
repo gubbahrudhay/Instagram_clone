@@ -1,0 +1,154 @@
+.messages-page-layout {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  margin-left: 72px;
+  background-color: black;
+}
+
+.messages-panel {
+  height: 100vh;
+  background-color: black;
+  border-right: 1px solid #262626;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  flex-shrink: 0;
+}
+
+.messages-header {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 24px 12px 24px;
+}
+
+.messages-title-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.messages-title {
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.messages-tabs {
+  display: flex;
+  justify-content: flex-start;
+  gap: 24px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.tab {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tab.active {
+  color: white;
+}
+
+.tab:not(.active) {
+  color: #8e8e8e;
+}
+
+.messages-body {
+  flex: 1;
+  overflow-y: auto;
+  padding-top: 10px;
+}
+
+.message-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 24px;
+  cursor: pointer;
+}
+
+.message-item:hover {
+  background-color: #1a1a1a;
+}
+
+.message-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #262626;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.message-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.message-username {
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.message-preview {
+  color: #8e8e8e;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.messages-content-placeholder {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  width: calc(100% - 400px - 72px);
+}
+
+.placeholder-circle {
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 96px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.messages-empty-title {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+}
+
+.messages-empty-subtitle {
+  color: #8e8e8e;
+  font-size: 14px;
+  margin: 0 0 24px 0;
+}
+
+.messages-send-btn {
+  background-color: #0095f6;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.messages-send-btn:hover {
+  background-color: #1877f2;
+}
