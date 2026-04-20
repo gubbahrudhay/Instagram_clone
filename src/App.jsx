@@ -5,6 +5,7 @@ import Side from "./components/Side"
 import RenderStories from "./components/Storiesss"
 import RenderStoriesss from "./components/Post"
 import Reels from "./components/Reels"
+import Messages from "./components/Messages"
 
 function App(){
   const [activeTab, setActiveTab] = useState('home');
@@ -19,6 +20,8 @@ function App(){
         </>
       ) : activeTab === 'reels' ? (
         <Reels />
+      ) : activeTab === 'messages' ? (
+        <Messages />
       ) : null}
     </div>
   )
