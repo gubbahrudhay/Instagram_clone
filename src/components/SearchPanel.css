@@ -1,0 +1,138 @@
+.search-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background-color: black;
+  border-right: 1px solid #262626;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  transition: transform 0.3s ease-in-out;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  width: 420px;
+  transform: translateX(-100%);
+}
+
+.search-panel.open {
+  transform: translateX(72px);
+}
+
+.search-header {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 24px 24px 24px;
+  border-bottom: 1px solid #262626;
+}
+
+.search-title-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.search-title {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.search-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  background-color: #262626;
+  border-radius: 8px;
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 16px;
+  position: absolute;
+  pointer-events: none;
+  fill: none;
+  stroke: #8e8e8e;
+}
+
+.search-input {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  color: white;
+  padding-left: 48px;
+  padding-right: 16px;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #8e8e8e;
+}
+
+.clear-input-btn {
+  position: absolute;
+  right: 12px;
+  border-radius: 50%;
+  background-color: grey;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  border: none;
+}
+
+.search-body {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.recent-section {
+  padding: 24px;
+}
+
+.recent-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.recent-title {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.clear-all-btn {
+  color: #0095f6;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.clear-all-btn:hover {
+  color: white;
+}
+
+.no-recent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 192px;
+}
+
+.no-recent-text {
+  color: #8e8e8e;
+  font-size: 14px;
+}

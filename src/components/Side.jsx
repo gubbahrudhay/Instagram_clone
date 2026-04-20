@@ -4,43 +4,54 @@ import insta from "../assets/insta.svg"
 import house from "../assets/house.svg"
 import {SquarePlay , Send , Search , Compass , Heart , Plus , Menu, Sidebar } from 'lucide-react';
 import "../index.css"
+import SearchPanel from './SearchPanel';
+import Messages from './Messages';
 
-const Side = () => {
+const Side = ({ setActiveTab }) => {
   const [ishovered, sethovered] = useState(false);
-  const handleMouseEnter = ()=>{sethovered(true)};
-  const handleMouseLeave = () => {sethovered(false)}
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
+  const handleMouseEnter = () => {
+    if (!isSearchOpen) sethovered(true);
+  };
+  const handleMouseLeave = () => sethovered(false);
+
+  const toggleSearch = () => {
+    setIsSearchOpen(!isSearchOpen);
+    if (!isSearchOpen) sethovered(false);
+  };
 
   return (
-    // with only icons the width is w-18
-    <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={`menu bg-[#0b1014] h-screen flex flex-col justify-between fixed font-[system-ui] transition-[width] ease-in-out`}>
-
+    <>
+      <SearchPanel isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+      <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={`menu bg-[rgb(11,16,20)] h-screen flex flex-col justify-between fixed font-[system-ui] transition-all duration-300 ${isSearchOpen ? 'border-r border-[#262626]' : ''}`}>
+{/* change the timing of the side bar */}
       <div>
         <img src={insta} alt="Instagram" className={'w-7 h-7 ml-5 mt-8'}/>
       </div>
       
       <div className='flex flex-col flex-1 justify-center'>
-        <div style={{display:'flex',flexDirection:'row',alignItems:'center',padding:'30px 20px',fontSize:'18px',color:'white',borderRadius:"10px"}}>
+        <div onClick={() => setActiveTab && setActiveTab('home')} style={{display:'flex',flexDirection:'row',alignItems:'center',padding:'30px 20px',fontSize:'18px',color:'white',borderRadius:"10px", cursor: 'pointer'}}>
           <img src={house} alt="house" className='w-7 h-7 mr-2' />
-          <span className={`${ishovered ? '' : 'hidden'}`}>Home</span>
+          <span className={`${ishovered && !isSearchOpen ? '' : 'hidden'}`}>Home</span>
+        </div>
+        <div onClick={() => setActiveTab && setActiveTab('reels')} style={{display:'flex',flexDirection:'row',alignItems:'center',fontSize:'18px',color:'white',padding:'30px 20px',borderRadius:"10px", cursor: 'pointer'}}>
+          <SquarePlay color='white' className='w-7 h-7 mr-2'/> <span className={`${ishovered && !isSearchOpen ? '' : 'hidden'}`}>Reels</span>
+        </div>
+        <div onClick={() => { setActiveTab && setActiveTab('messages'); setIsSearchOpen(false); }} style={{display:'flex',flexDirection:'row',alignItems:'center',fontSize:'18px',color:'white',padding:'30px 20px',borderRadius:"10px", cursor: 'pointer'}}>
+          <Send color='white' className='w-7 h-7 mr-2'/><span className={`${ishovered && !isSearchOpen ? '' : 'hidden'}`}>Messages</span>
+        </div>
+        <div onClick={toggleSearch} style={{display:'flex',flexDirection:'row',alignItems:'center',fontSize:'18px',color:'white',padding:'30px 20px',borderRadius:"10px", cursor: 'pointer'}}>
+          <Search color='white' className='w-7 h-7 mr-2'/> <span className={`${ishovered && !isSearchOpen ? '' : 'hidden'} p-0 m-0`}>Search</span>
         </div>
         <div style={{display:'flex',flexDirection:'row',alignItems:'center',fontSize:'18px',color:'white',padding:'30px 20px',borderRadius:"10px"}}>
-          <SquarePlay color='white' className='w-7 h-7 mr-2'/> <span className={`${ishovered ? '' : 'hidden'}`}>Reels</span>
+          <Compass color='white' className='w-7 h-7 mr-2'/> <span className={`${ishovered && !isSearchOpen ? '' : 'hidden'}`}>Explore</span>
         </div>
         <div style={{display:'flex',flexDirection:'row',alignItems:'center',fontSize:'18px',color:'white',padding:'30px 20px',borderRadius:"10px"}}>
-          <Send color='white' className='w-7 h-7 mr-2'/><span className={`${ishovered ? '' : 'hidden'}`}>Messages</span>
+          <Heart color='white' className='w-7 h-7 mr-2'/> <span className={`${ishovered && !isSearchOpen ? '' : 'hidden'}`}>Notifications</span>
         </div>
         <div style={{display:'flex',flexDirection:'row',alignItems:'center',fontSize:'18px',color:'white',padding:'30px 20px',borderRadius:"10px"}}>
-          <Search color='white' className='w-7 h-7 mr-2'/> <span className={`${ishovered ? '' : 'hidden'} p-0 m-0`}>Search</span>
-        </div>
-        <div style={{display:'flex',flexDirection:'row',alignItems:'center',fontSize:'18px',color:'white',padding:'30px 20px',borderRadius:"10px"}}>
-          <Compass color='white' className='w-7 h-7 mr-2'/> <span className={`${ishovered ? '' : 'hidden'}`}>Explore</span>
-        </div>
-        <div style={{display:'flex',flexDirection:'row',alignItems:'center',fontSize:'18px',color:'white',padding:'30px 20px',borderRadius:"10px"}}>
-          <Heart color='white' className='w-7 h-7 mr-2'/> <span className={`${ishovered ? '' : 'hidden'}`}>Notifications</span>
-        </div>
-        <div style={{display:'flex',flexDirection:'row',alignItems:'center',fontSize:'18px',color:'white',padding:'30px 20px',borderRadius:"10px"}}>
-          <Plus color='white' className='w-7 h-7 mr-2'/> <span className={`${ishovered ? '' : 'hidden'}`}>Create</span>
+          <Plus color='white' className='w-7 h-7 mr-2'/> <span className={`${ishovered && !isSearchOpen ? '' : 'hidden'}`}>Create</span>
         </div>
 
       </div>
@@ -50,7 +61,7 @@ const Side = () => {
       </div>
 
     </div>
-    
+    </>
   )
 }
 
