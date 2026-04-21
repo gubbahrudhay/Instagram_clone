@@ -11,8 +11,8 @@ const RenderStoriesss = () => {
                 <div className="flex flex-col gap-y-1.5">
                     <div className="flex items-center gap-1.75">
                         <div className="w-10 h-10 rounded-full bg-linear-to-tr from-yellow-400 via-pink-500 to-purple-600 p-0.75">
-                        <div className="w-full h-full bg-white rounded-full"></div>
-                    </div>
+                            <div className="w-full h-full bg-white rounded-full"></div>
+                        </div>
                     <div className="flex w-full justify-between">
                         <span className="">Tushar</span>
                         <div className="flex gap-2.5">
@@ -45,18 +45,5 @@ const RenderStoriesss = () => {
     )
 }
 
-
-
-
-
-const Post = () => {
-    return(
-        <div className="flex flex-col justify-center">
-            <div>{RenderStories()}</div>
-            <div className='h-137.5 w-100 bg-red-500 rounded-[5px] border border-[rgb(16,21,23)]'>
-            </div>
-        </div>
-    )
-}
 
 export default RenderStoriesss;
