@@ -22,57 +22,51 @@ const Layout = () => {
         <div className='flex h-full w-screen bg-[#0b1014]'>
             <div className='h-screen w-1/5'><Side/></div>
 
-            <div className='h-fit w-150 p-4 flex bg-blue-500 flex-col'>
+            <div className='h-fit  w-150 py-4  bg-blue-500 flex flex-col items-center'>
 
-                <div className='flex bg-red-500 w-full '>
-
-                    <button className='text-white' onClick={PreviousStory}>◀</button>
-
-                    <div className="flex w-full gap-2 overflow-hidden w-123.75">
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                        <RenderStories />
-                    </div>
-
-                    <button className='text-white' onClick={NextStory}>▶</button>
-
+                <div className="flex  gap-2 overflow-x-scroll w-138">
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
+                    <RenderStories />
                 </div>
+
+                
 
                 <div>
                     <RenderStoriesss />
@@ -109,3 +103,4 @@ const Layout = () => {
 }
 
 export default Layout;
+
