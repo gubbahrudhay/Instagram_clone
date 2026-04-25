@@ -1,8 +1,8 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Heart, MessageCircle, Send, Bookmark, MoreHorizontal, ChevronUp, ChevronDown, VolumeX } from 'lucide-react';
 import './Reels.css';
 
-export const ReelCard = () => {
+export const ReelCard = ({ user }) => {
     return (
         <div className="reels-content-wrapper">
 
@@ -20,9 +20,12 @@ export const ReelCard = () => {
 
                 <div className="reel-bottom-info">
                     <div className="reel-user-info">
-                        <div className="reel-avatar">
-                        </div>
-                        <span className="reel-username"></span>
+                        {user ? (
+                            <img src={user.picture.thumbnail} alt="avatar" className="reel-avatar" style={{ objectFit: 'cover' }} />
+                        ) : (
+                            <div className="reel-avatar"></div>
+                        )}
+                        <span className="reel-username">{user ? user.login.username : 'username'}</span>
                         <span className="reel-dot">•</span>
                         <button className="reel-follow-btn">Follow</button>
                     </div>
@@ -63,13 +66,35 @@ export const ReelCard = () => {
 };
 
 const Reels = () => {
-    const [reelsCount, setReelsCount] = useState(3);
+    const [reels, setReels] = useState([]);
+    const [page, setPage] = useState(1);
+    const [loading, setLoading] = useState(false);
     const containerRef = useRef(null);
+
+    const fetchReels = async () => {
+        if (loading) return;
+        setLoading(true);
+        try {
+            const response = await fetch(`https://randomuser.me/api/?results=3&page=${page}`);
+            const data = await response.json();
+            setReels(prev => [...prev, ...data.results]);
+            setPage(prev => prev + 1);
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        fetchReels();
+
+    }, []);
 
     const handleScroll = (e) => {
         const bottom = e.target.scrollHeight - e.target.scrollTop <= e.target.clientHeight + 10;
         if (bottom) {
-            setReelsCount(prev => prev + 3);
+            fetchReels();
         }
     };
 
@@ -92,9 +117,9 @@ const Reels = () => {
             onScroll={handleScroll}
             style={{ overflowY: 'scroll', scrollSnapType: 'y mandatory', flexDirection: 'column', justifyContent: 'flex-start' }}
         >
-            {Array.from({ length: reelsCount }).map((_, index) => (
-                <div key={index} style={{ width: '100%', height: '100vh', flexShrink: 0, scrollSnapAlign: 'start', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                    <ReelCard />
+            {reels.map((user, index) => (
+                <div key={`${user.login.uuid}-${index}`} style={{ width: '100%', height: '100vh', flexShrink: 0, scrollSnapAlign: 'start', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <ReelCard user={user} />
                 </div>
             ))}
 
