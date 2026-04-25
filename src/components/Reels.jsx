@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { Heart, MessageCircle, Send, Bookmark, MoreHorizontal, ChevronUp, ChevronDown, VolumeX } from 'lucide-react';
 import './Reels.css';
 
@@ -63,22 +63,49 @@ export const ReelCard = () => {
 };
 
 const Reels = () => {
+    const [reelsCount, setReelsCount] = useState(3);
+    const containerRef = useRef(null);
+
+    const handleScroll = (e) => {
+        const bottom = e.target.scrollHeight - e.target.scrollTop <= e.target.clientHeight + 10;
+        if (bottom) {
+            setReelsCount(prev => prev + 3);
+        }
+    };
+
+    const handleNext = () => {
+        if (containerRef.current) {
+            containerRef.current.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+        }
+    };
+
+    const handlePrev = () => {
+        if (containerRef.current) {
+            containerRef.current.scrollBy({ top: -window.innerHeight, behavior: 'smooth' });
+        }
+    };
+
     return (
-        <div className="reels-container">
-            <ReelCard />
+        <div 
+            className="reels-container" 
+            ref={containerRef}
+            onScroll={handleScroll}
+            style={{ overflowY: 'scroll', scrollSnapType: 'y mandatory', flexDirection: 'column', justifyContent: 'flex-start' }}
+        >
+            {Array.from({ length: reelsCount }).map((_, index) => (
+                <div key={index} style={{ width: '100%', height: '100vh', flexShrink: 0, scrollSnapAlign: 'start', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <ReelCard />
+                </div>
+            ))}
 
-
-            <div className="nav-chevrons">
-                <button className="chevron-btn chevron-up-btn">
+            <div className="nav-chevrons" style={{ position: 'fixed' }}>
+                <button className="chevron-btn chevron-up-btn" onClick={handlePrev}>
                     <ChevronUp size={20} color="currentColor" />
                 </button>
-                <button className="chevron-btn">
+                <button className="chevron-btn" onClick={handleNext}>
                     <ChevronDown size={20} color="currentColor" />
                 </button>
             </div>
-
-
-
         </div>
     );
 };
