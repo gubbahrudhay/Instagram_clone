@@ -8,7 +8,7 @@ const RenderStoriesss = ({ user }) => {
     const [liked, setLiked] = useState(false)
 
     return (
-        <div className="ml-10 mt-10 w-116.25 bg-blue-500">
+        <div className="ml-10 mt-10 w-116.25">
             
             {/* Header */}
             <div className="flex flex-col gap-y-1.5">
@@ -57,8 +57,8 @@ const RenderStoriesss = ({ user }) => {
             </div>
 
             {/* Actions */}
-            <div className="flex mt-2">
-                <div className="flex w-[40%] justify-between items-center">
+            <div color="white" className="flex mt-2">
+                <div color="white" className="flex w-[40%] justify-between items-center">
                     
                     {/* Like Button */}
                     {liked ? (
@@ -70,18 +70,19 @@ const RenderStoriesss = ({ user }) => {
                         />
                     ) : (
                         <Heart
+                            color="white"
                             className="w-6 h-6 cursor-pointer"
                             onClick={() => setLiked(prev => !prev)}
                         />
                     )}
 
-                    <MessageCircle className="cursor-pointer" />
-                    <Send className="cursor-pointer" />
-                    <Repeat2 className="cursor-pointer" />
+                    <MessageCircle color="white" className="cursor-pointer" />
+                    <Send color="white" className="cursor-pointer" />
+                    <Repeat2 color="white" className="cursor-pointer" />
                 </div>
 
                 <div className="flex flex-1 justify-end">
-                    <Bookmark className="cursor-pointer" />
+                    <Bookmark color="white" className="cursor-pointer" />
                 </div>
             </div>
 

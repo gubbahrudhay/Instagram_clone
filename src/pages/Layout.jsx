@@ -46,7 +46,7 @@ const Layout = () => {
 
             {activeTab === 'home' && (
                 <div className='flex-1 flex justify-center'>
-                    <div className='h-fit w-150 py-4 bg-blue-500 flex flex-col items-center'>
+                    <div className='h-fit w-150 py-4 bg-[#0b1014] flex flex-col items-center'>
 
                 <div className="flex gap-2 overflow-x-scroll w-138 no-scrollbar pb-2">
                     {stories.map((user, i) => <RenderStories key={i} user={user} />)}
