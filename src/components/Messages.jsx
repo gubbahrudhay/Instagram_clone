@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Edit, Send } from 'lucide-react';
 import './Messages.css';
 
 const Messages = () => {
-  const dummyMessages = Array.from({ length: 8 });
+  const [messageCount, setMessageCount] = useState(15);
+
+  const handleScroll = (e) => {
+    const bottom = e.target.scrollHeight - e.target.scrollTop <= e.target.clientHeight + 10;
+    if (bottom) {
+      setMessageCount(prev => prev + 10);
+    }
+  };
+
+  const dummyMessages = Array.from({ length: messageCount });
 
   return (
     <div className="messages-page-layout">
@@ -19,7 +28,7 @@ const Messages = () => {
           </div>
         </div>
 
-        <div className="messages-body">
+        <div className="messages-body" onScroll={handleScroll}>
           {dummyMessages.map((_, index) => (
             <div key={index} className="message-item">
               <div className="message-avatar"></div>
