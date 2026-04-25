@@ -7,6 +7,7 @@ import RenderStoriesss from "./components/Post"
 import Reels from "./components/Reels"
 
 function App() {
+  const [activeTab, setActiveTab] = useState('home');
   return (
     <div className="bg-black min-h-screen text-white">
       <Side setActiveTab={setActiveTab} />
