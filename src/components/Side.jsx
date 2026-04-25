@@ -24,8 +24,8 @@ const Side = ({ setActiveTab }) => {
   return (
     <>
       <SearchPanel isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)}/>
-      <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={`menu bg-[rgb(11,16,20)] h-screen flex flex-col justify-between fixed font-[system-ui] transition-all duration-300 ${isSearchOpen ? 'border-r border-[#262626]' : ''}`}>
-{/* change the timing of the side bar */}
+      <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={`menu bg-[rgb(11,16,20)] ${ishovered && !isSearchOpen ? 'w-[244px]' : 'w-[72px]'} h-screen flex flex-col justify-between fixed font-[system-ui] transition-all duration-300 ${isSearchOpen ? 'border-r border-[#262626]' : ''} z-50 overflow-hidden`}>
+
       <div>
         <img src={insta} alt="Instagram" className={'w-7 h-7 ml-5 mt-8'}/>
       </div>
@@ -48,7 +48,7 @@ const Side = ({ setActiveTab }) => {
           <Search color='white' className='w-7 h-7 mr-2'/> <span className={`${ishovered && !isSearchOpen ? '' : 'hidden'} p-0 m-0`}>Search</span>
         </div>
 
-        <div style={{display:'flex',flexDirection:'row',alignItems:'center',fontSize:'18px',color:'white',padding:'30px 20px',borderRadius:"10px"}}>
+        <div onClick={() => { setActiveTab && setActiveTab('explore'); setIsSearchOpen(false); }} style={{display:'flex',flexDirection:'row',alignItems:'center',fontSize:'18px',color:'white',padding:'30px 20px',borderRadius:"10px", cursor: 'pointer'}}>
           <Compass color='white' className='w-7 h-7 mr-2'/> <span className={`${ishovered && !isSearchOpen ? '' : 'hidden'}`}>Explore</span>
         </div>
 
