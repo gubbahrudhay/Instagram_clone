@@ -23,7 +23,7 @@ const Side = ({ setActiveTab }) => {
 
   return (
     <>
-      <SearchPanel isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+      <SearchPanel isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)}/>
       <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={`menu bg-[rgb(11,16,20)] h-screen flex flex-col justify-between fixed font-[system-ui] transition-all duration-300 ${isSearchOpen ? 'border-r border-[#262626]' : ''}`}>
 {/* change the timing of the side bar */}
       <div>
@@ -35,21 +35,27 @@ const Side = ({ setActiveTab }) => {
           <img src={house} alt="house" className='w-7 h-7 mr-2' />
           <span className={`${ishovered && !isSearchOpen ? '' : 'hidden'}`}>Home</span>
         </div>
+
         <div onClick={() => setActiveTab && setActiveTab('reels')} style={{display:'flex',flexDirection:'row',alignItems:'center',fontSize:'18px',color:'white',padding:'30px 20px',borderRadius:"10px", cursor: 'pointer'}}>
           <SquarePlay color='white' className='w-7 h-7 mr-2'/> <span className={`${ishovered && !isSearchOpen ? '' : 'hidden'}`}>Reels</span>
         </div>
+
         <div onClick={() => { setActiveTab && setActiveTab('messages'); setIsSearchOpen(false); }} style={{display:'flex',flexDirection:'row',alignItems:'center',fontSize:'18px',color:'white',padding:'30px 20px',borderRadius:"10px", cursor: 'pointer'}}>
           <Send color='white' className='w-7 h-7 mr-2'/><span className={`${ishovered && !isSearchOpen ? '' : 'hidden'}`}>Messages</span>
         </div>
+
         <div onClick={toggleSearch} style={{display:'flex',flexDirection:'row',alignItems:'center',fontSize:'18px',color:'white',padding:'30px 20px',borderRadius:"10px", cursor: 'pointer'}}>
           <Search color='white' className='w-7 h-7 mr-2'/> <span className={`${ishovered && !isSearchOpen ? '' : 'hidden'} p-0 m-0`}>Search</span>
         </div>
+
         <div style={{display:'flex',flexDirection:'row',alignItems:'center',fontSize:'18px',color:'white',padding:'30px 20px',borderRadius:"10px"}}>
           <Compass color='white' className='w-7 h-7 mr-2'/> <span className={`${ishovered && !isSearchOpen ? '' : 'hidden'}`}>Explore</span>
         </div>
+
         <div style={{display:'flex',flexDirection:'row',alignItems:'center',fontSize:'18px',color:'white',padding:'30px 20px',borderRadius:"10px"}}>
           <Heart color='white' className='w-7 h-7 mr-2'/> <span className={`${ishovered && !isSearchOpen ? '' : 'hidden'}`}>Notifications</span>
         </div>
+        
         <div style={{display:'flex',flexDirection:'row',alignItems:'center',fontSize:'18px',color:'white',padding:'30px 20px',borderRadius:"10px"}}>
           <Plus color='white' className='w-7 h-7 mr-2'/> <span className={`${ishovered && !isSearchOpen ? '' : 'hidden'}`}>Create</span>
         </div>
