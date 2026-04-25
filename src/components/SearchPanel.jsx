@@ -5,9 +5,16 @@ import './SearchPanel.css';
 const SearchPanel = ({ isOpen, onClose }) => {
   const [searchText, setSearchText] = useState('');
 
+
   return (
     <div className={`search-panel ${isOpen ? 'open' : ''}`}>
       <div className="search-header">
+        <div className='-mt-7 flex flex-row-reverse'>
+          <button onClick={onClose} >
+            <X size={30} color='white' />
+          </button>
+        </div>
+        
         <div className="search-title-container">
           <h2 className="search-title">Search</h2>
         </div>
@@ -23,7 +30,7 @@ const SearchPanel = ({ isOpen, onClose }) => {
           />
           {searchText && (
             <button className="clear-input-btn" onClick={() => setSearchText('')}>
-              <X size={12} color="#262626" />
+              <X size={12} color="#262626"/>
             </button>
           )}
         </div>
