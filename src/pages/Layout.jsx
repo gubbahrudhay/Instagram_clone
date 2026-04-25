@@ -3,7 +3,7 @@ import Side from "../components/Side"
 import RenderStories from '../components/Storiesss'
 import FollowSuggestedPage from '../components/SuggestedFollowers'
 import RenderStoriesss from '../components/Post'
-import { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import Reels from '../components/Reels'
 import Messages from '../components/Messages'
@@ -12,6 +12,22 @@ import Explore from '../components/Explore'
 const Layout = () => {
     const [activeTab, setActiveTab] = useState('home')
     const [pages, setpages] = useState(0)
+    const [stories, setStories] = useState([])
+    const [posts, setPosts] = useState([])
+
+    useEffect(() => {
+        const fetchHomeData = async () => {
+            try {
+                const res = await fetch('https://randomuser.me/api/?results=35');
+                const data = await res.json();
+                setStories(data.results.slice(0, 15));
+                setPosts(data.results.slice(15, 35));
+            } catch (err) {
+                console.error(err);
+            }
+        };
+        fetchHomeData();
+    }, []);
 
     const NextStory = () => {
         setpages(pages + 1)
@@ -32,75 +48,14 @@ const Layout = () => {
                 <div className='flex-1 flex justify-center'>
                     <div className='h-fit w-150 py-4 bg-blue-500 flex flex-col items-center'>
 
-                <div className="flex  gap-2 overflow-x-scroll w-138">
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
-                    <RenderStories />
+                <div className="flex gap-2 overflow-x-scroll w-138 no-scrollbar pb-2">
+                    {stories.map((user, i) => <RenderStories key={i} user={user} />)}
                 </div>
 
                 
 
-                <div>
-                    <RenderStoriesss />
-                    <RenderStoriesss />
-                    <RenderStoriesss />
-                    <RenderStoriesss />
-                    <RenderStoriesss />
-                    <RenderStoriesss />
-                    <RenderStoriesss />
-                    <RenderStoriesss />
-                    <RenderStoriesss />
-                    <RenderStoriesss />
-                    <RenderStoriesss />
-                    <RenderStoriesss />
-                    <RenderStoriesss />
-                    <RenderStoriesss />
-                    <RenderStoriesss />
-                    <RenderStoriesss />
-                    <RenderStoriesss />
-                    <RenderStoriesss />
-                    <RenderStoriesss />
-                    <RenderStoriesss />
-                    <RenderStoriesss />
-                    <RenderStoriesss />
-                    <RenderStoriesss />
-                    <RenderStoriesss />
+                <div className="mt-8 flex flex-col gap-10 pb-10">
+                    {posts.map((user, i) => <RenderStoriesss key={i} user={user} />)}
                 </div>
 
                     </div>
